@@ -4,7 +4,12 @@ import WaterFall from './waterfall';
 let wf = null;
 window.onload = () => {
   // 页面加载完成后初始化事件
-  wf = new WaterFall('.container', 4, 'items', 5);
+  const options = {
+    num: 5,
+    padding: 5,
+    className: 'item',
+  };
+  wf = new WaterFall('.container', options);
 };
 
 // 监听滚动

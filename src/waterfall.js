@@ -1,12 +1,12 @@
 class WaterFall {
   /**
    *
-   * @param {String} el 元素名称带属性标识例如'#container'
-   * @param {Number} num 一行的数量
-   * @param {String} className 子元素class名称不需要属性标识 例如'items'
-   * @param {Number} padding 间距
+   * @param {String} el 主容器class或者id 例如 '#container'
+   * @param {Object} param1 num 列数，className 子元素标识, padding 间距
    */
-  constructor(el, num, className, padding) {
+  constructor(el, { num = 4, className = null, padding = 10 } = {}) {
+    if (!el) throw new Error('missing passed element');
+    if (typeof el !== 'string') throw new Error('element must be string');
     this.$el = el;
     this.$num = num;
     this.$className = className;
@@ -31,9 +31,9 @@ class WaterFall {
       if (children && children.length > 0) {
         // 遍历子元素
         for (let i = 0; i < children.length; i += 1) {
-          if (type && children[i].className !== this.$className) continue;
+          if (this.$className && children[i].className !== this.$className) continue;
           const state = children[i].getAttribute('imgFormat');
-          if (state && state === '1') continue;
+          if (type && state && state === '1') continue;
           // 标记图片格式化完成，type为ture时跳过此元素
           children[i].setAttribute('imgFormat', '1');
           let imgElement = children[i].children;
