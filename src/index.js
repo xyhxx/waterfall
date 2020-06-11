@@ -1,5 +1,5 @@
 import './indec.scss';
-import WaterFall from './waterfall';
+// import WaterFall from './waterfall';
 
 let wf = null;
 window.onload = () => {
@@ -7,7 +7,7 @@ window.onload = () => {
   const options = {
     num: 5,
     padding: 5,
-    className: 'item',
+    className: 'items',
   };
   wf = new WaterFall('.container', options);
 };
