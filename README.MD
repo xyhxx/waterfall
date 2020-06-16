@@ -50,9 +50,9 @@
 
 # js 瀑布流初始化
 
-> 初始化实例
-
 ## new WaterFall(element, options);
+
+> 初始化实例
 
 | Param               |  Type  | Default | Description       |
 | :------------------ | :----: | :-----: | :---------------- |
